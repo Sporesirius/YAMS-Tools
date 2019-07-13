@@ -134,7 +134,7 @@ function setup_grub2() {
     $sudo_prefix chmod 775 bootstrap
     $sudo_prefix ./bootstrap
     $sudo_prefix ./autogen.sh
-	$sudo_prefix mkdir -p $mountpoint_fat32/EFI/GRUB
+	$sudo_prefix mkdir -p $mountpoint_fat32
     echo -e "${colour_cyan}Switching back to YAMS folder.${colour_reset}"
     cd ..
 }
