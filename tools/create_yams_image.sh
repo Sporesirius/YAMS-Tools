@@ -6,7 +6,7 @@
 
 # Configure variables
 declare_variables() {
-    yams_grub2_repo="https://github.com/Sporesirius/grub2.git"
+    yams_grub2_repo="https://github.com/Sporesirius/YAMS-GRUB2.git"
     yams_preloader_repo="https://github.com/Sporesirius/PreLoader.git"
     #yams_uefi_ntfs_repo="https://github.com/Sporesirius/uefi-ntfs.git"
 
@@ -123,8 +123,8 @@ function unmount_filesystem() {
 
 # Cloning, compiling and installing
 function clone_repo() {
-    $sudo_prefix git clone --branch newtest $yams_grub2_repo # --branch test
-    $sudo_prefix git clone $yams_preloader_repo
+    $sudo_prefix git clone $yams_grub2_repo
+    $sudo_prefix git clone --branch test $yams_preloader_repo
     #$sudo_prefix git clone $yams_uefi_ntfs_repo
 }
 
@@ -425,6 +425,3 @@ main() {
 }
 
 main
-
-
-
