@@ -6,7 +6,7 @@
 
 # Configure variables
 declare_variables() {
-    yams_grub2_repo="https://github.com/Sporesirius/grub2.git"
+    yams_grub2_repo="https://github.com/Sporesirius/YAMS-GRUB2.git"
     yams_preloader_repo="https://github.com/Sporesirius/PreLoader.git"
     #yams_uefi_ntfs_repo="https://github.com/Sporesirius/uefi-ntfs.git"
 
@@ -130,7 +130,7 @@ function clone_repo() {
 
 function setup_grub2() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix chmod 775 bootstrap
     $sudo_prefix ./bootstrap
     $sudo_prefix ./autogen.sh
@@ -142,7 +142,7 @@ function setup_grub2() {
 # i386-pc
 function compile_grub2_i386-pc() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
 	$sudo_prefix ./linguas.sh
     $sudo_prefix ./configure --with-platform=pc --target=i386 --disable-werror
     $sudo_prefix make
@@ -153,7 +153,7 @@ function compile_grub2_i386-pc() {
 
 function install_grub2_i386-pc() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./grub-install --target=i386-pc --compress=gz --no-floppy --verbose --recheck --boot-directory=$mountpoint_ntfs/YAMS /dev/$image_loop
     sleep 20
     $sudo_prefix make clean
@@ -164,7 +164,7 @@ function install_grub2_i386-pc() {
 # i386-efi
 function compile_grub2_i386-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./configure --with-platform=efi --target=i386 --disable-werror
     $sudo_prefix make
     $sudo_prefix make install
@@ -174,7 +174,7 @@ function compile_grub2_i386-efi() {
 
 function install_grub2_i386-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./grub-install --target=i386-efi  --compress=gz --removable --verbose --recheck --modules=ntfs.mod --boot-directory=$mountpoint_ntfs/YAMS --efi-directory=$mountpoint_fat32
     sleep 20
     $sudo_prefix make clean
@@ -185,7 +185,7 @@ function install_grub2_i386-efi() {
 # x86_64-efi
 function compile_grub2_x86_64-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./configure --with-platform=efi --target=x86_64 --disable-werror
     $sudo_prefix make
     $sudo_prefix make install
@@ -195,7 +195,7 @@ function compile_grub2_x86_64-efi() {
 
 function install_grub2_x86_64-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./grub-install --target=x86_64-efi --compress=gz --removable --verbose --recheck --modules=ntfs.mod --boot-directory=$mountpoint_ntfs/YAMS --efi-directory=$mountpoint_fat32
     sleep 20
     $sudo_prefix make clean
@@ -207,7 +207,7 @@ function install_grub2_x86_64-efi() {
 # arm-efi
 function compile_grub2_arm-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./configure --with-platform=efi --target=arm-linux-gnueabihf --disable-werror
     $sudo_prefix make
     $sudo_prefix make install
@@ -217,7 +217,7 @@ function compile_grub2_arm-efi() {
 
 function install_grub2_arm-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./grub-install --target=arm-efi  --compress=gz --removable --verbose --recheck --modules=ntfs.mod --boot-directory=$mountpoint_ntfs/YAMS --efi-directory=$mountpoint_fat32
     sleep 20
     $sudo_prefix make clean
@@ -228,7 +228,7 @@ function install_grub2_arm-efi() {
 # arm64-efi
 function compile_grub2_arm64-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./configure --with-platform=efi --target=aarch64-linux-gnu --disable-werror
     $sudo_prefix make
     $sudo_prefix make install
@@ -238,7 +238,7 @@ function compile_grub2_arm64-efi() {
 
 function install_grub2_arm64-efi() {
     echo -e "${colour_cyan}Switching to GRUB 2 folder.${colour_reset}"
-    cd grub2/
+    cd YAMS-GRUB2/
     $sudo_prefix ./grub-install --target=arm64-efi --compress=gz --removable --verbose --recheck --modules=ntfs.mod --boot-directory=$mountpoint_ntfs/YAMS --efi-directory=$mountpoint_fat32
     sleep 20
     $sudo_prefix make clean
